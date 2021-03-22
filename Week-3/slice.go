@@ -15,12 +15,12 @@ func main() {
 	for {
 		fmt.Print("Введите число:")
 		_, E := fmt.Scan(&scan)
-		exitCode := strings.ToLower(scan)
-		if err != nil {
+		exit := strings.ToLower(scan)
+		if E != nil {
 			fmt.Println(E)
 			os.Exit(0)
 		}
-		if exitCode == "x" {
+		if exit == "x" {
 			fmt.Println("Завершение:")
 			os.Exit(0)
 		}
