@@ -9,25 +9,25 @@ import (
 )
 
 func main() {
-	List := make([]int, 0, 3)
+	sli := make([]int, 0, 3)
 
 	var scan string
+	fmt.Print("Введите число: ")
 	for {
-		fmt.Print("Введите число:")
-		_, E := fmt.Scan(&scan)
+		fmt.Scan(&scan)
 		exit := strings.ToLower(scan)
-		if E != nil {
-			fmt.Println(E)
-			os.Exit(0)
-		}
 		if exit == "x" {
-			fmt.Println("Завершение:")
+			fmt.Println("Завершение программы")
 			os.Exit(0)
+		} else {
+			str, err := strconv.Atoi(scan)
+			if err != nil {
+				fmt.Println("Повторите попытку")
+			}
+			sli = append(sli, str)
+			sort.Ints(sli)
+			fmt.Println(sli)
 		}
 
-		parseIntScanValue, E := strconv.Atoi(scan)
-		List = append(List, parseIntScanValue)
-		sort.Ints(List)
-		fmt.Println(List)
 	}
 }
